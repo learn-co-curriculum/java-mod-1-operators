@@ -15,9 +15,7 @@ These are the types of operators we will cover in this lesson:
 
 - Assignment operators
 - Arithmetic (i.e. math) operators
-
-There are more operators that exist; however, we will cover them in another
-lesson.
+- Relational operators
 
 ## Assignment Operators
 
@@ -54,13 +52,13 @@ in Java:
 
 | Operator | Description    |
 |----------|----------------|
-| +        | Addition       |
-| -        | Subtraction    |
-| *        | Multiplication |
-| /        | Division       |
-| %        | Modulus        |
-| ++       | Increment      |
-| --       | Decrement      |
+| `+`      | Addition       |
+| `-`      | Subtraction    |
+| `*`      | Multiplication |
+| `/`      | Division       |
+| `%`      | Modulus        |
+| `++`     | Increment      |
+| `--`     | Decrement      |
 
 These operators can be applied to numerical data types, like `int` and
 `double`. They can also be used on `char` data types, but we will learn more
@@ -74,7 +72,7 @@ int secondNumber = 10;
 ```
 
 - The plus symbol (`+`) is a binary operator that adds the values on
-  either side of the operator. Let's look at the "expression" 
+  either side of the operator. Let's look at the "expression"
   `firstNumber + secondNumber`.
   - `firstNumber + secondNumber` is an expression. An **expression** is a
     combination of operators and variables that evaluate to a single value.
@@ -135,6 +133,71 @@ Has the exact same result as:
 ```java
 firstNumber = firstNumber + 1; 
 ```
+
+Another thing we should note about the increment and decrement operators is that
+the operator could be placed directly before or after the variable. In the
+examples above, we placed the operators after the variable. But we could have
+also done this:
+
+```java
+++firstNumber;
+--secondNumber;
+```
+
+When we place the operator before the variable, it will still have the same
+result as before: `++firstNumber` will return `21` and `--secondNumber` will
+return `9`. But order still matters! Let's take a look at an example of when
+the placement of the increment or decrement operator would make a difference:
+
+```java
+int result = ++firstNumber;
+System.out.println(result);
+
+// Reset firstNumber to 20
+firstNumber = 20;
+result = firstNumber++;
+System.out.println(result);
+```
+
+Now let's look at the output of the code above:
+
+```
+21
+20
+```
+
+So why are the outputs different? When the first line is run with the `++`
+preceding the variable, Java will first perform the operation of
+`firstNumber = firstNumber + 1;` before assigning the value of `firstNumber`
+to `result`. The next time when the increment operator is used is in the
+format of `firstNumber++`. When the `++` follows the variable, Java will
+access the value of `firstNumber` before completing the increment.
+
+## Relational Operators
+
+Let's say we would like to compare two values to each other. Are there any
+operators that exist for that? The answer is yes!
+
+**Relational operators** are operators that are available in java that allow
+us to perform comparisons against two values. Like the arithmetic operators,
+these operators will apply to numerical data types and the `char` data type.
+Consider the following table of relational operators known in Java:
+
+| Operator | Description           |
+|----------|-----------------------|
+| `==`     | Equal                 |
+| `!=`     | Not Equal             |
+| `>`      | Greater Than          |
+| `<`      | Less Than             |
+| `>=`     | Greater Than or Equal |
+| `<=`     | Less Than or Equal    |
+
+We can now use this table of relational operators to help us with comparisons!
+Note that all of these operators are binary operators - this means they require
+two values on either side of the operator. For example: 
+`firstNumber > secondNumber`. Relational operators will also always return a
+**boolean** value. This means that it will either return a true or false
+value. So `firstNumber > secondNumber` would return a value of true.
 
 ## Combining Operators
 
