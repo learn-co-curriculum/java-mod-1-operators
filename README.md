@@ -149,7 +149,7 @@ In this example, `result` will have a value of `(20 * 10) + (10 * 2)`, which is
 
 Note the parentheses with the expressions `20 * 10` and `10 * 2`. These were
 grouped together with parentheses to show that the multiplication will evaluate
-first when the code executes this statement. This is because the computer
+first when the computer executes this statement. This is because Java
 follows the order of operations precedence. If no parentheses are specified,
 the order of precedence will be the default:
 
