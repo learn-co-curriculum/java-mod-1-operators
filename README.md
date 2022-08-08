@@ -197,7 +197,14 @@ Note that all of these operators are binary operators - this means they require
 two values on either side of the operator. For example: 
 `firstNumber > secondNumber`. Relational operators will also always return a
 **boolean** value. This means that it will either return a true or false
-value. So `firstNumber > secondNumber` would return a value of true.
+value. Similarly, expressions that can only evaluate to either true or false
+are called **boolean expressions**. So `firstNumber > secondNumber` would be a
+boolean expression, and it would return a value of true. We could store the value
+in a boolean variable as well:
+
+```java
+boolean isLarger = firstNumber > secondNumber;
+```
 
 ## Combining Operators
 
