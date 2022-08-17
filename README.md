@@ -2,32 +2,40 @@
 
 ## Learning Goals
 
-- Use different operators
+- Define what an operator is
+- Review the different types of operators
 
 ## Introduction
 
-Operators are special instructions that allow you to inspect, manipulate and assign values. As such they can operate on either variables (that store values) or directly on values.
+**Operators** are special instructions that allow us to inspect, manipulate and
+assign values. As such they can operate on either variables or directly on
+values.
 
-These are the types of operators we will cover in this unit:
+These are the types of operators we will cover in this lesson:
 
-    Assignment operators allow you to assign values to variables
-    Arithmetic (i.e. math) operators allow you to combine values
-    Comparison operators allow you to test the values of two variables, which we will cover in another unit
-
+- Assignment operators
+- Arithmetic (i.e. math) operators
+- Relational operators
 
 ## Assignment Operators
 
-As you now know, variables are used to store values, so they can be used over and over again in your program. The way that a 
-value gets stored in a variable is with the `=` operator: 
+The **assignment operator** allows us to assign values to variables. As we now
+know, variables are used to store values so that they can be used repeatedly
+in a program. The way a value gets stored in a variable is with the assignment
+operator (`=`). The left operand of the assignment operator is the variable
+while the right operand is the value we want to assign to the variable. Note
+that the value must be the same data type as the variable.
 
-```java 
+```java
 String example = "this is a sample string"; 
 ```
 
-In the above example, we are combining the variable definition `String example` and the variable value assignment 
-`example = "this is a sample string"`. This does not have to be the case: 
+In the above example, we are combining the variable definition `String example`
+and the assignment `example = "this is a sample string"`. This does not have to
+be the case. For example, we could declare the variable earlier in the program
+and then initialize it later.
 
-```java 
+```java
 String example; 
 
 // some other code here
@@ -35,114 +43,193 @@ String example;
 example = "another sample value for my string";  
 ```
 
-Later in this unit, we will look at assignment operators that combined assigning a value to a variable and apply  some calculation 
-to it 
-
 ## Arithmetic Operators
 
-We can assign a set value to a variable, meaning that the value of the variable is hard coded in our source code: 
+**Arithmetic operators** help us perform simple mathematical operations. These
+operators are very similar to the arithmetic operators we may have learned in
+elementary school. Consider the following table of arithmetic operators known
+in Java:
 
-```java 
-int age = 20;  
-```
+| Operator | Description    |
+|----------|----------------|
+| `+`      | Addition       |
+| `-`      | Subtraction    |
+| `*`      | Multiplication |
+| `/`      | Division       |
+| `%`      | Modulus        |
+| `++`     | Increment      |
+| `--`     | Decrement      |
 
-Or we can apply some calculation to the way we come up with the value for a variable: 
-
-```java
-int birthYear = 2002; 
-int currentYear = 2022; 
-int age = currentYear - birthYear; 
-```
-
-The arithmetic operators in Java are mostly like the arithmetic operators in day-to-day life. Consider the following variables: 
-
-```java
-int firstNumber = 20; 
-int secondNumber = 10; 
-```
-
-Let's look at our first operator and use it to learn two more concepts:  
-
-* `+` adds values on either side of the operator: the "expression" `firstNumber + secondNumber` will "return" `30`
-
-Let's break down what this means before we go over more operators: 
-
-* `firstNumber + secondNumber` is an "expression", which means it's an instruction that can be combined with other instructions, but 
-has meaning on its own. 
-* An "expression" evaluates to "something", which means it can be interpreted by the computer and replaced by the value the
-computer calculated when it interpreted the expression. 
-* When the computer calculates a value for an expression, we say that it "returns" that value
-* When that value is returned, it can then be used in whatever other expressions are part of statement the expression is in
-
-For example, `firstNumber + secondNumber` is an expression that returns a value. If you try to leave this expression on 
-its own line in your source file: 
+These operators can be applied to numerical data types, like `int` and
+`double`. They can also be used on `char` data types, but we will learn more
+about that later on. Let's look at the addition operator to learn more on
+how operators can be used within Java! But to help us, consider the following
+variables when reading about each operator:
 
 ```java
-firstNumber + secondNumber; 
+int firstNumber = 20;
+int secondNumber = 10;
 ```
 
-You will get a compilation error that indicates that your expression is not a "statement", i.e. it's not a full instruction
-to the computer. That's because even though the expression could evaluate to a value, that value is never assigned to 
-anything or used in any other expression, therefore it would have no meaning to your program. 
+- The plus symbol (`+`) is a binary operator that adds the values on
+  either side of the operator. Let's look at the "expression"
+  `firstNumber + secondNumber`.
+  - `firstNumber + secondNumber` is an expression. An **expression** is a
+    combination of operators and variables that evaluate to a single value.
+  - When the computer evaluates the expression, we tend to say it "returns"
+    that value.
+  - Once the value is returned, it can then be used in other expressions.
+  - Expressions cannot be left on its own line within the source code. If they
+    are, then it will result in a compilation error. Expressions aren't a full
+    instruction to the computer until its value is assigned to a variable or
+    used in another expression.
+  - Combining the expression with the assignment operator will provide a full
+    statement: `int result = firstNumber + secondNumber;`. This is an
+    instruction that the computer can understand and compile.
+    - The `firstNumber` variable has the value `20`.
+    - The `secondNumber` variable has the value `10`.
+    - The code will take `20` and add it to `10` to return the value of `30`.
+    - The variable `result` of type `int` is then declared.
+    - Finally, the `result` variable is assigned to the value of `30`.
+  - Note how the operators all have spaces between them and the variable
+    operands. This is common stylistic syntax within Java to have spaces
+    between binary operators.
 
-We can now combine the `+` arithmetic operator and the `=` assignment operator: 
+Here is the full list of Java arithmetic operators, including the `+` operator
+again, so we have an easy place to look them all up:
 
-```java
-int result = firstNumber + secondNumber; 
-```
+- `+` is a binary operator that adds values on either side of the operator:
+  `firstNumber + secondNumber`returns `30`.
+- `-` is a binary operator that subtracts the right-hand operand from the
+  left-hand operand: `firstNumber - secondNumber` returns `10`.
+- `*` is a binary operator that multiplies the values on either side of the
+  operator: `firstNumber * secondNumber` returns `200`.
+- `/` is a binary operator that divides the right-hand operand by the left-hand
+  operand: `firstNumber / secondNumber` return `2`.
+- `%` is the modulus operator (or mod for short). It is a binary operator that
+   returns the remainder value of dividing two numbers:
+  - `firstNumber % secondNumber` returns `0` because 20 divided by 10 is an
+    even 2 with a remainder of 0.
+- `++` is the increment operator. The increment operator is a unary operator
+  and increases the value of the single operand by 1:
+  - `firstNumber++` returns `21`.
+  - Notice that the increment operator is placed directly after the variable
+    name with no space between the variable name and the operand.
+- `--` is the decrement operator. The decrement operator is a unary operator and
+   decreases the value of the single operand by 1:
+  - `secondNumber--` returns `9`
+  - Notice that the decrement operator is placed directly after the variable
+    name with no spaces between the variable name and the operand.
 
-That's now a full statement that: 
-
-* References the value stored in the `firstNumber` variable: `20`
-* References the value stored in the `secondNumber` variable: `10`
-* Takes `20` and adds it to `10`, and returns `30`
-* Defines a variable `result` of type `int`, which means we expect it to store whole numbers 
-* Takes the value `30` and assigns it to the variable `result` 
-
-Here is the full list of Java arithmetic operators, including the `+` operator again, so you have an easy place to look them 
-all up: 
-
-* `+` adds values on either side of the operator: `firstNumber + secondNumber` returns `30`
-* `-` subtracts the right-hand operand from the left-hand operand: `firstNumber - secondNumber` returns `10`
-* `*` multiplies the values on either side of the operator: `firstNumber * secondNumber` returns `200`
-* `/` divides the right-hand operand by the left-hand operand: `firstNumber / secondNumber` return `2`
-* `%` is the modulus operator and it returns the remainder value of dividing two numbers: 
-`firstNumber % secondNumber` returns `0` because 20 divided by 10 is even 2, with no remainder. 
-* `++` is the increment operator and increases the value of the single operand by 1: `firstNumber++` returns `21` 
-* `--` is the decrement operator and decreases the value of the single operand by 1: `secondNumber--` returns `9`
-
-Note that both the increment and decrement operators operate on the operand and assign it the new value. For example, writing: 
+Note that both the increment and decrement operators operate on the operand
+and assign it the new value. For example:
 
 ```java
 firstNumber++; 
 ```
 
-Has the exact same result as writing: 
+Has the exact same result as:
 
 ```java
 firstNumber = firstNumber + 1; 
 ```
 
-## Combining Operators 
+Another thing we should note about the increment and decrement operators is that
+the operator could be placed directly before or after the variable. In the
+examples above, we placed the operators after the variable. But we could have
+also done this:
 
-Multiple operators can be combined in a single statement: 
+```java
+++firstNumber;
+--secondNumber;
+```
+
+When we place the operator before the variable, it will still have the same
+result as before: `++firstNumber` will return `21` and `--secondNumber` will
+return `9`. But order still matters! Let's take a look at an example of when
+the placement of the increment or decrement operator would make a difference:
+
+```java
+int result = ++firstNumber;
+System.out.println(result);
+
+// Reset firstNumber to 20
+firstNumber = 20;
+result = firstNumber++;
+System.out.println(result);
+```
+
+Now let's look at the output of the code above:
+
+```
+21
+20
+```
+
+So why are the outputs different? When the first line is run with the `++`
+preceding the variable, Java will first perform the operation of
+`firstNumber = firstNumber + 1;` before assigning the value of `firstNumber`
+to `result`. The next time when the increment operator is used is in the
+format of `firstNumber++`. When the `++` follows the variable, Java will
+access the value of `firstNumber` before completing the increment.
+
+## Relational Operators
+
+Let's say we would like to compare two values to each other. Are there any
+operators that exist for that? The answer is yes!
+
+**Relational operators** are operators that are available in java that allow
+us to perform comparisons against two values. Like the arithmetic operators,
+these operators will apply to numerical data types and the `char` data type.
+Consider the following table of relational operators known in Java:
+
+| Operator | Description           |
+|----------|-----------------------|
+| `==`     | Equal                 |
+| `!=`     | Not Equal             |
+| `>`      | Greater Than          |
+| `<`      | Less Than             |
+| `>=`     | Greater Than or Equal |
+| `<=`     | Less Than or Equal    |
+
+We can now use this table of relational operators to help us with comparisons!
+Note that all of these operators are binary operators - this means they require
+two values on either side of the operator. For example: 
+`firstNumber > secondNumber`. Relational operators will also always return a
+**boolean** value. This means that it will either return a true or false
+value. Similarly, expressions that can only evaluate to either true or false
+are called **boolean expressions**. So `firstNumber > secondNumber` would be a
+boolean expression, and it would return a value of true. We could store the value
+in a boolean variable as well:
+
+```java
+boolean isLarger = firstNumber > secondNumber;
+```
+
+## Combining Operators
+
+Multiple operators can be combined in a single statement:
 
 ```java
 int result = firstNumber * 10 + secondNumber * 2; 
 ```
 
-In this example, `result` will have a value of `(20 * 10) + (10 * 2)`, which is `220` 
+In this example, `result` will have a value of `(20 * 10) + (10 * 2)`, which is
+`220`.
 
-Note that when I tried to calculate the result for myself, I grouped the expressions in my statement in a particular way. 
-That's because the operators we have seen so far have a specific precedence, which is their default grouping if none is specified: 
+Note the parentheses with the expressions `20 * 10` and `10 * 2`. These were
+grouped together with parentheses to show that the multiplication will evaluate
+first when the computer executes this statement. This is because Java
+follows the order of operations precedence. If no parentheses are specified,
+the order of precedence will be the default:
 
 1. Postfix: `++` and `--`
 2. Multiplicative: `*`, `/` and `%`
 3. Additive: `+` and `-`
 4. Assignment: `=`
 
-I would recommend that you always be explicit about the precedence you desire - it makes your code more readable and more 
-maintainable: 
+It is recommended to always be explicit about the precedence desired. It makes
+the code more readable and more maintainable:
 
 ```java
 int result = (firstNumber * 10) + (secondNumber * 2); 
